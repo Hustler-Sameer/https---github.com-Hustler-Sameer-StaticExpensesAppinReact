@@ -21,6 +21,10 @@ function Expenses1(props) {
       setInfoTextYear("2019 , 2020 && 2022");
     } else setInfoTextYear("2019 , 2020 && 2021");
   };
+  const filteredExpenses = props.items.filter(expense =>{
+    return expense.date.getFullYear().toString() === filteredYear;  // Now this year will return true if 
+    //the year matches the filtered year we will get true or else false
+  })
 
   return (
     <div className="expenses1">
@@ -30,14 +34,16 @@ function Expenses1(props) {
         onChange={filterChangeHandler}
       ></ExpensesFilter>
       <p> Dates for Years {filteredInfoTextYear} is hidden </p>
-      {props.items.map((expense) => (
-        <ExpenseItem
+      {filteredExpenses.map((expense) => {
+        console.log(expense)
+       return <ExpenseItem
+          key = {expense.id}
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
         />
-      ))}
-
+})}
+ 
       
     </div>
   );

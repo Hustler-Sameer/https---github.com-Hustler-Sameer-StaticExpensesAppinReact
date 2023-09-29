@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 
 import Expenses1 from './components/Expenses1';
@@ -35,17 +35,22 @@ function App() {
    
 const addExpenseHandler = expense => {
   console.log('In App.jsx file');
-  console.log(expense);
+  // console.log(expense);
   setExpenses(prevExpenses => {
-    return[expense , ...prevExpenses]
+    
+    return [expense , ...prevExpenses]
 
   })
+
+  console.log(expenses)
 }
+
+
 
   return (
     <div>
     
-    <NewExpense onExpenseAdd = {addExpenseHandler}></NewExpense>
+    <NewExpense onExpenseAdd={addExpenseHandler}></NewExpense>
     <Expenses1 items={expenses}/>
     </div>
   );

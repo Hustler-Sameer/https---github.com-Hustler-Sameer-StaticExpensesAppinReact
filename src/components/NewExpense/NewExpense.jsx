@@ -8,7 +8,7 @@ const NewExpense = (props) => {
         //expenseform who is child of NewExpense.jsx 
         const expenseData = {
             ...enteredExpenseData,  // coping our old data (object) which is named as FormData in ExpenseForm 
-            id: Math.random().toString()
+            id: 10000*Math.random().toString()
         } 
        // console.log(expenseData);
         props.onExpenseAdd(expenseData);
