@@ -12,14 +12,15 @@ function ExpenseItem(props)  {
   //let title = props.title;
 
 
-  const clickHandler = () => {
-    console.log("Clicked");
+  // const clickHandler = () => {
+  //   console.log("Clicked");
     
-     setTitle('Updated!!');
-    console.log(title);
-  }
+  //    setTitle('Updated!!');
+  //   console.log(title);
+  // }
     
     return(
+      <li>
       <div>
         
         <Card className='expense-item'>
@@ -30,10 +31,11 @@ function ExpenseItem(props)  {
           <h2>{props.title}</h2>
           <div className='expense-item__price'>${parseInt(props.amount)}</div>
         </div>
-        <button onClick={clickHandler}>Change Title</button>
+        
         
       </Card>
       </div>
+      </li>
       
     );
 }

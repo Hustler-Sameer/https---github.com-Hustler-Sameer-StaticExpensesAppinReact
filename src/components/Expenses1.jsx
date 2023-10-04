@@ -2,9 +2,11 @@ import "./Expenses1.css";
 import ExpenseItem from "./Expenses";
 import ExpensesFilter from "./NewExpense/ExpensesFilter";
 import { useState } from "react";
+import ExpenseList from "./NewExpense/ExpenseList";
+import ExpenseChart from "./ExpenseChart";
 
 function Expenses1(props) {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  const [filteredYear, setFilteredYear] = useState("2023");
   const [filteredInfoTextYear, setInfoTextYear] = useState(
     "2019 , 2021 && 2022"
   );
@@ -21,10 +23,22 @@ function Expenses1(props) {
       setInfoTextYear("2019 , 2020 && 2022");
     } else setInfoTextYear("2019 , 2020 && 2021");
   };
-  const filteredExpenses = props.items.filter(expense =>{
+  const filteredExpenses = props.items.filter(expense => {
     return expense.date.getFullYear().toString() === filteredYear;  // Now this year will return true if 
     //the year matches the filtered year we will get true or else false
   })
+  // let expensesContent = <p>No expenses found</p>
+  // if(filteredExpenses.length > 0){
+  //   expensesContent = filteredExpenses.map((expense) => {
+  //       console.log(expense)
+  //       return <ExpenseItem
+  //         key={expense.id}
+  //         title={expense.title}
+  //         amount={expense.amount}
+  //         date={expense.date}
+  //       />
+  //     })
+  // }
 
   return (
     <div className="expenses1">
@@ -34,18 +48,13 @@ function Expenses1(props) {
         onChange={filterChangeHandler}
       ></ExpensesFilter>
       <p> Dates for Years {filteredInfoTextYear} is hidden </p>
-      {filteredExpenses.map((expense) => {
-        console.log(expense)
-       return <ExpenseItem
-          key = {expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-})}
- 
-      
+      <ExpenseChart expenses={filteredExpenses}/>
+       
+      <ExpenseList items = {filteredExpenses} />
+
+
+
     </div>
-  );
+  )
 }
 export default Expenses1;
