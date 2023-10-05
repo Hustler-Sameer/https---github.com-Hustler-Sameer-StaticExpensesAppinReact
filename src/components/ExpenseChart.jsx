@@ -1,6 +1,6 @@
 import React from "react";
-import Chart from "./NewExpense/Charts/Chart";
 
+import Chart from "./NewExpense/Charts/Chart";
 
 
 const ExpenseChart = props => {
@@ -17,12 +17,12 @@ const ExpenseChart = props => {
 
         },
         {
-            label : 'March' ,
+            label : 'Mar' ,
             value: 0
 
         },
         {
-            label : 'April' ,
+            label : 'Apr' ,
             value: 0
 
         },
@@ -32,37 +32,37 @@ const ExpenseChart = props => {
 
         },
         {
-            label : 'June' ,
+            label : 'Jun' ,
             value: 0
 
         },
         {
-            label : 'July' ,
+            label : 'Jul' ,
             value: 0
 
         },
         {
-            label : 'August' ,
+            label : 'Aug' ,
             value: 0
 
         },
         {
-            label : 'September' ,
+            label : 'Sep' ,
             value: 0
 
         },
         {
-            label : 'October' ,
+            label : 'Oct' ,
             value: 0
 
         },
         {
-            label : 'November' ,
+            label : 'Nov' ,
             value: 0
 
         },
         {
-            label : 'December' ,
+            label : 'Dec' ,
             value: 0
 
         }
@@ -71,6 +71,7 @@ const ExpenseChart = props => {
         const expenseMonth = expense.date.getMonth(); // Jan is set as 0 and our array also has jan at 0 Index
         chartDataPoints[expenseMonth].value += expense.amount;
     }
+    
     return <Chart dataPoints = {chartDataPoints} />
 
 

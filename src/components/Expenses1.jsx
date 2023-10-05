@@ -1,7 +1,7 @@
 import "./Expenses1.css";
 import ExpenseItem from "./Expenses";
 import ExpensesFilter from "./NewExpense/ExpensesFilter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExpenseList from "./NewExpense/ExpenseList";
 import ExpenseChart from "./ExpenseChart";
 
@@ -27,6 +27,9 @@ function Expenses1(props) {
     return expense.date.getFullYear().toString() === filteredYear;  // Now this year will return true if 
     //the year matches the filtered year we will get true or else false
   })
+
+
+ 
   // let expensesContent = <p>No expenses found</p>
   // if(filteredExpenses.length > 0){
   //   expensesContent = filteredExpenses.map((expense) => {
